@@ -24,6 +24,8 @@ X_test = sc_X.transform(X_test)
 from sklearn.tree import DecisionTreeClassifier
 classifier = DecisionTreeClassifier(criterion = 'entropy', random_state=0)
 classifier.fit(X_train, Y_train)
+
+
 Y_pred = classifier.predict(X_test)
 
 from sklearn.metrics import confusion_matrix
@@ -44,7 +46,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(Y_set)):
     plt.scatter(X_set[Y_set == j, 0], X_set[Y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Naive Bayes(Training set)')
+plt.title('Decision Tree Classifier(Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -64,7 +66,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(Y_set)):
     plt.scatter(X_set[Y_set == j, 0], X_set[Y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Naive Bayes (Testing set)')
+plt.title('Decision Tree Classfier (Testing set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
